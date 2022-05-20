@@ -1,0 +1,15 @@
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\obj\Debug\net6.0\SimpleFormulaInterpreter.csproj.AssemblyReference.cache
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\obj\Debug\net6.0\SimpleFormulaInterpreter.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\obj\Debug\net6.0\SimpleFormulaInterpreter.AssemblyInfoInputs.cache
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\obj\Debug\net6.0\SimpleFormulaInterpreter.AssemblyInfo.cs
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\obj\Debug\net6.0\SimpleFormulaInterpreter.csproj.CoreCompileInputs.cache
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\bin\Debug\net6.0\SimpleFormulaInterpreter.exe
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\bin\Debug\net6.0\SimpleFormulaInterpreter.deps.json
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\bin\Debug\net6.0\SimpleFormulaInterpreter.runtimeconfig.json
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\bin\Debug\net6.0\SimpleFormulaInterpreter.dll
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\bin\Debug\net6.0\SimpleFormulaInterpreter.pdb
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\obj\Debug\net6.0\SimpleFormulaInterpreter.dll
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\obj\Debug\net6.0\refint\SimpleFormulaInterpreter.dll
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\obj\Debug\net6.0\SimpleFormulaInterpreter.pdb
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\obj\Debug\net6.0\SimpleFormulaInterpreter.genruntimeconfig.cache
+D:\Documentos\SimpleFormulaInterpreter\SimpleFormulaInterpreter\obj\Debug\net6.0\ref\SimpleFormulaInterpreter.dll
