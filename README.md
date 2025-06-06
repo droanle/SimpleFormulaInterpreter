@@ -1,49 +1,107 @@
 # SimpleFormulaInterpreter
 
-Este programa foi desenvolvido pensando nas funcionalidades de uma filha de RPG de mesa. Para jogar RPG é necessário que cada jogador crie uma ficha, essa ficha descrever todas as características e capacidades de um personagem, uma ficha normalmente é composta por “Atributos”, "Perícias" e/ou “Defeitos/Qualidades” (a presença destes propriedades e o nome deles pode mudar de acordo com o sistema de RPG em que você estiver jogando, não é uma regra usar esta nomenclatura e organização porém é fácil encontrar sistemas que usam desta mesma organização), estas propriedades definem as habilidades e limitações do seu personagem.
+O **SimpleFormulaInterpreter** é um programa desenvolvido para interpretar fórmulas utilizadas em fichas de personagens de RPG de mesa.
 
-Outras propriedades que uma ficha de RPG tem que ter, são os “Atributos Secundários” (AS), como PV(pontos de vida), PM(pontos de magia) entre outros, estes AS normalmente são derivados das ou outras propriedades da ficha, tendo uma fórmula para cada AS que usa os valores da ficha como variáveis.
+Em muitos sistemas de RPG, as fichas contêm **Atributos**, **Perícias**, **Qualidades/Defeitos** e outros elementos que definem as capacidades e limitações dos personagens. Além disso, existem os chamados **Atributos Secundários** (como Pontos de Vida, Pontos de Magia, etc.), que normalmente são derivados de outras propriedades da ficha por meio de fórmulas.
 
-- Exemplo:
-  > Pontos de vida = ((força + constituição)*4)+10
+Este interpretador foi criado para processar automaticamente essas fórmulas, bastando fornecer os valores da ficha (através da classe `data`) e a fórmula correspondente.
 
-No exemplo acima **“força”** e **“constituição”** seriam atributos definidos na ficha, vale ressaltar que neste exemplo a fórmula é simples mas em alguns sistemas ela pode ser complexa.
+> ⚠️ Este projeto também foi criado com o propósito de estudo de algoritmos recursivos. O processamento de operações dentro de parênteses é feito por recursão.
 
-Dado o contexto resolvi escrever este algoritmo, que é feito para resolver este tipo de problema exigindo somente o acesso aos calores da ficha (a classe “data”) e a fórmula que deve ser resolvida seguindo os padrões detalhados abaixo.
+---
 
-``
-OBS.: Este programa também foi desenvolvido para fins de estudo sobre algoritmos recursivos. O método que ele usa para dividir as operações nas parentes vem da recursividade
-``
+## Exemplo
 
+```plaintext
+Pontos de Vida = ((força + constituição) * 4) + 10
+```
 
-### Identificar variável: 
-Caractere **“ { ”** seguido do nome da variável, terminado com o caracter **“ } “**. Exemplo de identificação de uma variável com o nome **“ FOR ”**: **{FOR}**
-Rolagem de dado:
-Se o nome for identificado com os caracteres  **“ :D ”** seguido de um número, significa que ele é uma rolagem de dado. 
-- Exemplo:
-  > Dizer **“ :D20 “** é o mesmo que rolar um dado de 20 lados.
+No exemplo acima, `força` e `constituição` são atributos definidos na ficha. A fórmula é simples, mas o sistema permite expressões muito mais complexas.
 
-### Separador: 
-O caráter que define uma separação é as parenteses (**“ () ”**).
-### Processamento primitivo:
-   - **Operadores:**
-		- **“ = ”**  = igualdade
-        - **“ ! ”**   = desigualdade
-        - **“ > ”**  = maior
-        - **“ < ”**  = menor
-        - **“ * ”**   = multiplicação
-        - **“ / ”**   = divisão
-        - **“ + ”**  = soma
-        - **“ _ ”**   = subtração
+---
 
-   - **Estrutura lógica:**
-	    A operação é isolada por um abre e fecha de colchetes (“ [] ”), ela começa com um valor verdadeiro (“ true ”) ou falso (“ false ”) seguido de carácter “ ? ”, as possibilidades dos eventos vem depois sendo separados pelo carácter “ ; ”.
-     - Exemplos:
-		  > [true?150;698] = 150
-    
-       > [false?652;987] = 987 
-		
-      ``OBS: Esta estrutura foi inspirada no operador ternária.``
+## Sintaxe Suportada
 
-### Ciclo de processamento:
-Primeiro o código altera as **_variáveis_** pelos seus respectivos valores, sem mais nenhuma valor a ser posto na fórmula o programa começa a realizar o trabalho de recursividade dividindo os processo em processos menores usando o **_separador_**, por fim, esses processos menores usam as definições de e estruturas do **_processamento primitivor_** para retornar o valor correto.
+### Variáveis
+
+As variáveis são identificadas por chaves `{}`.
+
+```plaintext
+{FOR}
+```
+
+No exemplo acima, o valor da variável `FOR` será buscado nos dados da ficha.
+
+---
+
+### Rolagem de Dados
+
+Para simular a rolagem de dados, utilize `:D` seguido do número de lados do dado.
+
+```plaintext
+:D20
+```
+
+Isso representa a rolagem de um dado de 20 lados.
+
+---
+
+### Agrupamento de Expressões
+
+Use parênteses `()` para agrupar operações e controlar a ordem de execução:
+
+```plaintext
+((força + constituição) * 4) + 10
+```
+
+---
+
+## Operadores Suportados
+
+### Aritméticos
+
+| Símbolo | Operação      |
+| ------- | ------------- |
+| `+`     | Soma          |
+| `_`     | Subtração     |
+| `*`     | Multiplicação |
+| `/`     | Divisão       |
+
+### Comparações
+
+| Símbolo | Operação  |
+| ------- | --------- |
+| `=`     | Igualdade |
+| `!`     | Diferença |
+| `>`     | Maior que |
+| `<`     | Menor que |
+
+---
+
+## Estruturas Condicionais
+
+A estrutura condicional segue o formato:
+
+```plaintext
+[condição?valor_se_verdadeiro;valor_se_falso]
+```
+
+* A condição deve ser `true` ou `false`.
+* Os resultados são separados por ponto e vírgula `;`.
+
+### Exemplos
+
+```plaintext
+[true?150;698]    → retorna 150
+[false?652;987]   → retorna 987
+```
+
+> ℹ️ Esta estrutura foi inspirada no operador ternário comum em linguagens de programação.
+
+---
+
+## Conclusão
+
+O **SimpleFormulaInterpreter** é uma ferramenta e flexível criada para automatizar cálculos em fichas de RPG, suportando variáveis, rolagens de dados, operadores matemáticos e condicionais. Ele também serve como base de estudo para algoritmos recursivos e processamento de expressões.
+
+Ideal para mestres de RPG que desejam facilitar sua mesa ou desenvolvedores interessados em lógica de interpretação de fórmulas.
